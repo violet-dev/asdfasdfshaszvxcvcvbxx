@@ -44,9 +44,6 @@ class _MyHomePageState extends State<MyHomePage> {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
-      ),
       body: FutureBuilder(
         future: Future.value(0).then((value) async {
           const target = 1249129;
@@ -70,11 +67,10 @@ class _MyHomePageState extends State<MyHomePage> {
           return ListView.builder(
             itemCount: data.item1!.length,
             itemExtent: 300.0,
-            // cacheExtent: 1.0 * height,
             itemBuilder: ((context, index) {
               return Image.network(
                 data.item1![index],
-                // key: _keys![index],
+                key: _keys![index],
                 headers: data.item2,
                 cacheHeight: 500,
                 fit: BoxFit.fitWidth,
@@ -88,10 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   if (kDebugMode) {
                     print(error);
                   }
-                  // Future.delayed(const Duration(milliseconds: 500))
-                  //     .then((value) => setState(() {
-                  //           _keys![index] = GlobalKey();
-                  //         }));
 
                   return SizedBox(
                     height: 300.0,
